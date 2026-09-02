@@ -54,6 +54,7 @@ h1 {
 }
 
 .fieldRow label {
+  text-align: left;
   display: block;
   margin-bottom: 7px;
   font-weight: 600;
@@ -86,7 +87,7 @@ h1 {
 
 .roleRadios {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 25px;
   padding: 5px 0;
 }
@@ -104,6 +105,7 @@ h1 {
 }
 
 .fieldError {
+  text-align: left;
   display: block;
   color: #c62828;
   font-size: 12px;
@@ -249,4 +251,88 @@ tbody tr:last-child td {
   color: #999999;
   border: 1px solid #cccccc;
   cursor: not-allowed;
+}
+
+.detailsBox {
+  margin-top: 25px;
+  padding: 20px;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.detailsTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 12px;
+}
+
+.detailsTop h2 {
+  margin: 0;
+  color: #222222;
+  font-size: 19px;
+}
+
+.roleChip {
+  padding: 6px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #333333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.detailsGrid {
+  display: block;
+}
+
+.detailsGrid p {
+  margin: 9px 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 420px;
+  color: #444444;
+  font-size: 14px;
+}
+
+.detailsGrid strong {
+  color: #222222;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .formCard,
+  .tableCard {
+    padding: 22px;
+  }
+
+  .backBtn {
+    width: 100%;
+  }
+
+  .roleFilterBox {
+    max-width: 260px;
+    margin: 0 auto 20px 0;
+    text-align: left;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailsGrid p {
+    max-width: 100%;
+  }
+
+  .detailsTop {
+    align-items: flex-start;
+  }
 }

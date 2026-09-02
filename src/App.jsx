@@ -268,7 +268,7 @@ function App() {
           <div className={styles.roleFilterBox}>
             <label>Filter by Role</label>
             <select value={roleFilter} onChange={(event) => setRoleFilter(event.target.value)}>
-              <option value="All">Show</option>
+              <option value="All">All</option>
               <option value="Engineer">Engineer</option>
               <option value="Tester">Tester</option>
             </select>
@@ -326,7 +326,37 @@ function App() {
             <button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
               Next
             </button>
-          </div>  
+          </div>
+
+          {actGadget !== null && (
+            <div className={styles.detailsBox}>
+              <div className={styles.detailsTop}>
+                <h2>Active Detail Card</h2>
+                <span className={styles.roleChip}>{actGadget.role}</span>
+              </div>
+
+              <div className={styles.detailsGrid}>
+                <p>
+                  <strong>Gadget Name:</strong> {actGadget.gadgetName}
+                </p>
+                <p>
+                  <strong>Category:</strong> {actGadget.categoryType}
+                </p>
+                <p>
+                  <strong>Manufacturer:</strong> {actGadget.manufacturerName}
+                </p>
+                <p>
+                  <strong>Health Rating:</strong> {actGadget.healthRate}
+                </p>
+                <p>
+                  <strong>Tech Brand:</strong> {actGadget.techBrand}
+                </p>
+                <p>
+                  <strong>User Role:</strong> {actGadget.role}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div> );
