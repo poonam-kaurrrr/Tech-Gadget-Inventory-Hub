@@ -2,12 +2,6 @@
   box-sizing: border-box;
 }
 
-:global(body) {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  background: #f7f7f7;
-  color: #222;
-}
 
 .container {
   min-height: 100vh;
@@ -17,14 +11,29 @@
   padding: 40px 25px;
 }
 
-.formCard {
+.formCard,
+.tableCard {
   width: 100%;
-  max-width: 480px;
   background: #ffffff;
   padding: 30px;
   border: 1px solid #d8d8d8;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+:global(body) {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+
+.formCard {
+  max-width: 480px;
+}
+
+.tableCard {
+  max-width: 1100px;
 }
 
 h1 {
@@ -33,6 +42,11 @@ h1 {
   color: #222222;
   font-size: 27px;
   font-weight: 700;
+}
+
+.formCard > p {
+  margin: 0 0 20px 0;
+  color: #666666;
 }
 
 .fieldRow {
@@ -48,7 +62,8 @@ h1 {
 }
 
 .fieldRow input,
-.fieldRow select {
+.fieldRow select,
+.roleFilterBox select {
   width: 100%;
   padding: 10px 11px;
   border: 1px solid #cfcfcf;
@@ -60,7 +75,8 @@ h1 {
 }
 
 .fieldRow input:focus,
-.fieldRow select:focus {
+.fieldRow select:focus,
+.roleFilterBox select:focus {
   border-color: #555555;
 }
 
@@ -94,7 +110,8 @@ h1 {
   margin-top: 5px;
 }
 
-.formCard button {
+.formCard button,
+.tableCard button {
   width: 100%;
   padding: 11px 12px;
   border: 1px solid #222222;
@@ -107,17 +124,129 @@ h1 {
   transition: 0.2s ease;
 }
 
-.formCard button:hover {
+.formCard button:hover,
+.tableCard button:hover:not(:disabled) {
   background: #444444;
   border-color: #444444;
 }
 
-@media (max-width: 700px) {
-  .container {
-    padding: 20px 15px;
-  }
+.tableTop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-  .formCard {
-    padding: 22px;
-  }
+.tableTop > div {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tableTop h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.tableTop p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: #777777;
+}
+
+.backBtn {
+  order: 1;
+  width: auto;
+}
+
+.roleFilterBox {
+  max-width: 260px;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.roleFilterBox label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333333;
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #dddddd;
+  text-align: left;
+  white-space: nowrap;
+  color: #333333;
+  font-size: 14px;
+}
+
+th {
+  background: #eeeeee;
+  color: #222222;
+  font-weight: 600;
+  border-bottom: 1px solid #cccccc;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+tbody tr:hover {
+  background: #f7f7f7;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.selectedRow {
+  background: #e5e5e5 !important;
+  color: #222222;
+}
+
+.selectedRow td {
+  color: #222222;
+}
+
+.pagerRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pagerRow button {
+  width: auto;
+  min-width: 100px;
+}
+
+.pagerRow span {
+  font-size: 14px;
+  color: #555555;
+}
+
+.pagerRow button:disabled {
+  background: #f5f5f5;
+  color: #999999;
+  border: 1px solid #cccccc;
+  cursor: not-allowed;
 }
